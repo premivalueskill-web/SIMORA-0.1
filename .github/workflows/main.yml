@@ -1,0 +1,64 @@
+
+name: SIMORA APK Build Fresh
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "simora-android/**"
+      - ".github/workflows/simora-build.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build SIMORA Debug APK
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set Up Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Set Up Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Check Project Structure
+        run: |
+          echo "Repository root:"
+          pwd
+          ls -la
+          echo "Android project:"
+          ls -la simora-android
+          echo "Gradle wrapper:"
+          ls -l simora-android/gradlew
+          echo "Shell commands:"
+          command -v bash
+          command -v sh
+          java -version
+
+      - name: Check Gradle Wrapper
+        working-directory: simora-android
+        run: |
+          chmod +x gradlew
+          bash ./gradlew --version
+
+      - name: Build Debug APK
+        working-directory: simora-android
+        run: |
+          bash ./gradlew assembleDebug --stacktrace
+
+      - name: Upload Debug APK
+        uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: SIMORA-DEBUG-APK
+          path: simora-android/app/build/outputs/apk/debug/*.apk
+          if-no-files-found: error
+          retention-days: 7
