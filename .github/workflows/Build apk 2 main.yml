@@ -37,8 +37,17 @@ jobs:
           command -v sh || true
           echo "STEP 2: File check"
           ls -l gradlew
-          echo "STEP 3: Run Gradle wrapper"
-          sh ./gradlew --version
+          echo "STEP 3: 
+      - name: Diagnose Gradle Wrapper
+        working-directory: simora-android
+        run: |
+          echo "Checking wrapper files"
+          ls -la
+          ls -la gradle/wrapper
+          echo "Checking wrapper properties"
+          cat gradle/wrapper/gradle-wrapper.properties
+          echo "Checking script execution"
+          sh -x ./gradlew --version
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
