@@ -25,11 +25,18 @@ jobs:
       - name: Set up Android SDK
         uses: android-actions/setup-android@v4
 
-      - name: Build APK
+      
+      - name: Build APK - Debug
         working-directory: simora-android
         run: |
+          echo "Checking project files"
+          pwd
+          ls -la
+          ls -l gradlew
           chmod +x gradlew
-          ./gradlew assembleDebug
+          java -version
+          ./gradlew --version
+          ./gradlew assembleDebug --stacktrace
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
