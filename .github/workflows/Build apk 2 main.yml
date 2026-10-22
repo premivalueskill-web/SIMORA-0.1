@@ -28,15 +28,17 @@ jobs:
       
       
       
+      
       - name: Build APK - Debug
         working-directory: simora-android
         run: |
-          echo "Checking Gradle wrapper"
+          echo "STEP 1: Shell check"
+          command -v bash || true
+          command -v sh || true
+          echo "STEP 2: File check"
           ls -l gradlew
-          file gradlew
-          head -n 1 gradlew
-          chmod +x gradlew
-          bash ./gradlew --version
+          echo "STEP 3: Run Gradle wrapper"
+          sh ./gradlew --version
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
