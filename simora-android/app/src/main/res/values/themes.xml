@@ -1,0 +1,6 @@
+<resources>
+    <style name="Theme.SIMORA" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:statusBarColor">@color/simora_primary_dark</item>
+        <item name="android:navigationBarColor">@color/simora_surface</item>
+    </style>
+</resources>

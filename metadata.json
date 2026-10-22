@@ -1,0 +1,10 @@
+{
+  "name": "Remix SIMORA - Your Need Our Deed",
+  "description": "Hyperlocal quick commerce and grocery delivery platform with live Google Maps tracking, OTP authentication, delivery partner app, and admin control.",
+  "requestFramePermissions": [
+    "geolocation"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

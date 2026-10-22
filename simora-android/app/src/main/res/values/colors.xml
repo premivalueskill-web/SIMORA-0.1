@@ -1,0 +1,9 @@
+<resources>
+    <color name="simora_primary">#0B6623</color>
+    <color name="simora_primary_dark">#044B20</color>
+    <color name="simora_secondary">#FACC15</color>
+    <color name="simora_background">#F8FAFC</color>
+    <color name="simora_surface">#FFFFFF</color>
+    <color name="simora_text_primary">#0F172A</color>
+    <color name="simora_text_secondary">#64748B</color>
+</resources>

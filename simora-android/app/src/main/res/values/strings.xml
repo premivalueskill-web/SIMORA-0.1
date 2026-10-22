@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">SIMORA</string>
+    <string name="app_tagline">Your Need Our Deed</string>
+    <string name="welcome_to_simora">Welcome to SIMORA</string>
+    <string name="customer_login">Customer Login</string>
+    <string name="enter_mobile">Enter Mobile Number</string>
+    <string name="send_otp">Send OTP</string>
+    <string name="verify_otp">Verify OTP &amp; Start Shopping</string>
+    <string name="explore_as_guest">Explore Store as Guest</string>
+</resources>
